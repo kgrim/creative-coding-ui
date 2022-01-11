@@ -1,10 +1,12 @@
-export const tabTitles = ["Main", "Pane Test"];
+import { formatString } from "./general-util";
 
 export const params = {
   main: {
-    backgroundColor: "#22aaeeff",
+    backgroundColor: "#000000",
     width: 1024,
     height: 1024,
+    template: "",
+    animate: true,
   },
   paneTest: {
     lineCap: "butt",
@@ -18,14 +20,32 @@ export const params = {
     frame: 0,
     animate: true,
   },
+  simpleGrid: {
+    lineColor: false,
+    innerColor: true,
+    lineColorValue: "#FFFFFF",
+    innerColorValue: "#FFFFFF",
+    numberOfColumns: 5,
+    numberOfRows: 5,
+    lineWidth: 4,
+    gap: 5,
+  },
 };
 
 export const paneData = {
   main: {
-    backgroundColor: { view: "inline" },
+    backgroundColor: {},
     width: {},
     height: {},
+    template: {
+      options: {
+        simpleGrid: "Simple Grid",
+        main: "Main",
+      },
+    },
+    animate: {},
   },
+
   paneTest: {
     lineCap: {
       options: { round: "round", square: "sauqre" },
@@ -40,4 +60,16 @@ export const paneData = {
     animate: {},
     frame: { min: 0, max: 999 },
   },
+  simpleGrid: {
+    lineColor: {},
+    lineColorValue: {},
+    innerColor: {},
+    innerColorValue: {},
+    numberOfColumns: { min: 1, max: 20, step: 1 },
+    numberOfRows: { min: 1, max: 20, step: 1 },
+    lineWidth: { min: 0, max: 100, step: 1 },
+    gap: { min: 0, max: 20, step: 1 },
+  },
 };
+
+export const tabTitles = ["Main", "Simple Grid"];

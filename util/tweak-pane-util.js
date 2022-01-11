@@ -1,5 +1,6 @@
 const Tweakpane = require("tweakpane");
 
+import { formatString } from "./general-util";
 import { params, paneData, tabTitles } from "./pane-data";
 
 export const createPane = () => {
@@ -31,8 +32,4 @@ const addInputsToPane = (pane, tabName) => {
       paneData[formattedTabName][field]
     );
   });
-};
-
-const formatString = (string) => {
-  return (string.charAt(0).toLowerCase() + string.slice(1)).replace(/\s/g, "");
 };
