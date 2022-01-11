@@ -2,23 +2,22 @@ import { formatString } from "./general-util";
 
 export const params = {
   main: {
-    backgroundColor: "#000000",
+    backgroundColor: "#123456",
     width: 1024,
     height: 1024,
     template: "",
     animate: true,
   },
-  paneTest: {
+  frequencyGrid: {
     lineCap: "butt",
-    animateColor: "#48a857ff",
-    cols: 10,
-    rows: 10,
+    noiseType: "3D",
+    animationColor: "#48a857ff",
+    numberOfColumns: 10,
+    numberOfRows: 10,
     scaleMin: 1,
     scaleMax: 30,
-    freq: 0.001,
+    frequency: 0.001,
     amp: 0.2,
-    frame: 0,
-    animate: true,
   },
   simpleGrid: {
     lineColor: false,
@@ -39,26 +38,26 @@ export const paneData = {
     height: {},
     template: {
       options: {
-        simpleGrid: "Simple Grid",
-        main: "Main",
+        "Frequency Grid": "Frequency Grid",
+        "Simple Grid": "Simple Grid",
       },
     },
-    animate: {},
   },
 
-  paneTest: {
+  frequencyGrid: {
     lineCap: {
       options: { round: "round", square: "sauqre" },
     },
-    animateColor: {},
-    cols: { min: 1, max: 10 },
-    rows: { min: 1, max: 10 },
+    noiseType: {
+      options: { "2D": "2D", "3D": "3D" },
+    },
+    animationColor: {},
+    numberOfColumns: { min: 1, max: 70 },
+    numberOfRows: { min: 1, max: 70 },
     scaleMin: { min: 1, max: 100 },
     scaleMax: { min: 1, max: 100 },
-    freq: { min: -0.01, max: 0.01 },
+    frequency: { min: -0.01, max: 0.01 },
     amp: { min: 0, max: 1 },
-    animate: {},
-    frame: { min: 0, max: 999 },
   },
   simpleGrid: {
     lineColor: {},
@@ -72,4 +71,4 @@ export const paneData = {
   },
 };
 
-export const tabTitles = ["Main", "Simple Grid"];
+export const tabTitles = ["Main", "Simple Grid", "Frequency Grid"];

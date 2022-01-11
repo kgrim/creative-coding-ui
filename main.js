@@ -4,7 +4,9 @@ import { createPane } from "./util/tweak-pane-util";
 import { params } from "./util/pane-data";
 
 //methods
+("Frequency Grid");
 import { SimpleGrid } from "./methods/simple-grid";
+import { FrequencyGrid } from "./methods/frequency-grid";
 
 const settings = {
   dimensions: [1024, 1024],
@@ -13,15 +15,19 @@ const settings = {
   resizeCanvas: true,
 };
 
-const sketch = ({ canvas, update }) => {
+const sketch = ({ canvas }) => {
   return {
-    render({ context, width, height, frame, pause, play }) {
+    render({ context, width, height, frame }) {
       context.fillStyle = params["main"].backgroundColor;
       context.fillRect(0, 0, width, height);
 
       switch (params["main"].template) {
         case "Simple Grid":
           return SimpleGrid({ context, width, height });
+          break;
+
+        case "Frequency Grid":
+          return FrequencyGrid({ context, width, height, frame });
           break;
 
         default:

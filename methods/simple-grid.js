@@ -34,6 +34,7 @@ export const SimpleGrid = ({ context, width, height }) => {
     for (let currentRow = 0; currentRow < numberOfRows; currentRow++) {
       x = centerX + (pixelWidth + gap) * currentColumn;
       y = centerY + (pixelHeight + gap) * currentRow;
+      context.save();
 
       context.beginPath();
 
@@ -48,5 +49,6 @@ export const SimpleGrid = ({ context, width, height }) => {
         context.stroke();
       }
     }
+    context.restore();
   }
 };
