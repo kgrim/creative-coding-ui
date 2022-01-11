@@ -1,18 +1,23 @@
 const canvasSketch = require("canvas-sketch");
 
-import { createPane } from "./utilities/utilities";
+import { createPane } from "./util/tweak-pane-util";
+import { params } from "./util/pane-data";
 
 const settings = {
-  dimensions: [2048, 2048],
+  dimensions: [1024, 1024],
+  animate: true,
+  hotkeys: true,
+  resizeCanvas: true,
 };
 
-const sketch = () => {
-  return ({ context, width, height }) => {
-    context.fillStyle = "white";
-    context.fillRect(0, 0, width, height);
+const sketch = ({ canvas }) => {
+  return {
+    render({ context, width, height, frame }) {
+      context.fillStyle = params["main"].backgroundColor;
+      context.fillRect(0, 0, width, height);
+    },
   };
 };
 
 createPane();
-
 canvasSketch(sketch, settings);
